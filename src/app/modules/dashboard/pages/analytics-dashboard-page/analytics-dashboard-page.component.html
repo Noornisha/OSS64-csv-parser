@@ -1,0 +1,27 @@
+<nz-spin [nzSpinning]="loading">
+  <nz-page-header nzTitle="Dashboard"></nz-page-header>
+  <nz-table
+    *ngIf="!loading"
+    #basicTable
+    [nzData]="listOfData"
+    [nzScroll]="{ x: '100%' }"
+  >
+    <thead>
+      <tr>
+        <th *ngFor="let item of tableHeader">{{ item }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td
+          nz-typography
+          nzCopyable
+          [nzCopyText]="data[item]"
+          *ngFor="let item of tableHeader"
+        >
+          {{ data[item] }}
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-spin>

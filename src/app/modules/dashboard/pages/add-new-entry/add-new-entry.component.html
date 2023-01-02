@@ -1,0 +1,25 @@
+<nz-page-header nzTitle="Add New Entry"></nz-page-header>
+<div class="grid grid-cols-2 gap-2">
+  <nz-card>
+    <form
+      nz-form
+      nzLayout="vertical"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit(model)"
+    >
+      <formly-form
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+        [form]="form"
+      ></formly-form>
+      <button type="submit" nz-button nzType="primary">Submit</button>
+    </form>
+  </nz-card>
+  <nz-card>
+    {{ formJSON | json }}
+    <button nz-typography nzCopyable nzCopyText="{{ formJSON | json }}">
+      Copy JSON
+    </button>
+  </nz-card>
+</div>
